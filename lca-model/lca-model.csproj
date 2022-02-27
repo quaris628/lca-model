@@ -46,6 +46,7 @@
     <Compile Include="model\Process.cs" />
     <Compile Include="ui\FlowTipDraggable.cs" />
     <Compile Include="ui\ProcessDrawable.cs" />
+    <Compile Include="model\WorkArea.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Phi\phi\phi.csproj">
@@ -55,6 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="db\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

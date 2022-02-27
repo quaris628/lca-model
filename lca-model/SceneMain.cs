@@ -9,6 +9,7 @@ using phi.control;
 using phi.io;
 using phi.graphics.renderables;
 using phi.graphics.drawables;
+using phi.other;
 using lca_model.model;
 using lca_model.ui;
 
@@ -19,40 +20,30 @@ namespace lca_model
       private readonly Text TITLE = new Text.TextBuilder("LCA Model").Build();
       private const Keys BACK_KEY = Keys.Escape;
 
-      private readonly Drawable WORK_AREA = new RectangleDrawable(200, 100,
-         LCAPhiConfig.Window.WIDTH - 200, LCAPhiConfig.Window.HEIGHT - 100)
-         .SetColor(Color.White);
+      private WorkArea workArea;
 
-      private readonly Process[] processes;
-      private readonly Flow flow;
-      
-      public SceneMain(Scene prevScene) : base(prevScene, new ImageWrapper(LCAPhiConfig.Render.DEFAULT_BACKGROUND))
+      public SceneMain(Scene prevScene) : base(prevScene,
+         new ImageWrapper(LCAPhiConfig.Render.DEFAULT_BACKGROUND))
       {
-         processes =  new Process[] {
-               new Process("Test", 200, 200, WORK_AREA.GetBoundaryRectangle()),
-               new Process("Test 2", 200, 400, WORK_AREA.GetBoundaryRectangle()),
-         };
-         flow = new Flow(600, 200, 700, 260);
+         workArea = new WorkArea();
+         Process test1 = new Process.ProcessBuilder(workArea)
+            .WithName("Test One").WithXY(300, 400).Build();
+         Process test2 = new Process.ProcessBuilder(workArea)
+            .WithName("Test Two").WithXY(300, 450).Build();
+         workArea.Add(test1);
+         workArea.Add(test2);
+         workArea.Add(new Flow(workArea, 400, 400, 460, 430));
       }
 
       protected override void InitializeMe()
       {
          IO.KEYS.Subscribe(Back, BACK_KEY);
          
-
          IO.RENDERER.Add(TITLE, 0);
-         IO.RENDERER.Add(WORK_AREA, 0);
-         foreach (Process p in processes)
-         {
-            IO.RENDERER.Add(p.GetDrawable(), 1);
-            p.Initialize();
-         }
+         IO.RENDERER.Add(workArea.GetDrawables(), 0);
 
-         foreach (Drawable d in flow.GetDrawables())
-         {
-            IO.RENDERER.Add(d, 2);
-         }
-         flow.Initialize();
+         workArea.Initialize();
+         
 
       }
 

@@ -15,13 +15,14 @@ namespace lca_model.model
       private FlowTipDraggable inTip;
       private FlowTipDraggable outTip;
       private Line connector;
+      private WorkArea workArea;
 
-      public Flow(int inX, int inY, int outX, int outY)
+      public Flow(WorkArea workArea, int inX, int inY, int outX, int outY)
       {
          connector = new Line(inX, inY, outX, outY);
-         inTip = new FlowTipDraggable(connector, true, inX, inY);
-         outTip = new FlowTipDraggable(connector, false, outX, outY);
-         
+         inTip = new FlowTipDraggable(workArea, connector, true, inX, inY);
+         outTip = new FlowTipDraggable(workArea, connector, false, outX, outY);
+         this.workArea = workArea;
       }
 
       public void Initialize()

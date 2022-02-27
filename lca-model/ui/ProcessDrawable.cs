@@ -49,5 +49,8 @@ namespace lca_model.ui
          bodyText.SetCenterXY(GetX() + WIDTH / 2, GetY() + HEIGHT / 2);
       }
 
+      public int GetInputsX() { return GetX() + SIDES_WIDTH / 2; }
+      public int GetOutputsX() { return GetX() + WIDTH - SIDES_WIDTH / 2; }
+      public int GetIOsY() { return GetY() + HEIGHT / 2; }
    }
 }
