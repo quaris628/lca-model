@@ -1,0 +1,3 @@
+TODO:
+write tests for json-reading classes
+figure out design to instantiate aggregated classes
