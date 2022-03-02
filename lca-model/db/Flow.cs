@@ -1,8 +1,9 @@
 using System;
 using System.IO;
 using System.Collections;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+//using System.Text.Json;
+//using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace lca_model.db {
 
@@ -12,9 +13,8 @@ namespace lca_model.db {
         
         public Flow(string filepath) {
             string json = File.ReadAllText(filepath).Replace("@","");
-            //Console.WriteLine(json);
-            this.data = JsonSerializer.Deserialize<FlowData>(json);
-            //Console.WriteLine("\n" + data.ToString().Replace(" ","\n"));
+            this.data = JsonConvert.DeserializeObject<FlowData>(json);
+            //this.data = JsonSerializer.Deserialize<FlowData>(json);
         }
         
         public class FlowData {

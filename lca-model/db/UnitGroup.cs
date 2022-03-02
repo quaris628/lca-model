@@ -1,18 +1,21 @@
 using System;
 using System.IO;
 using System.Collections;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+//using System.Text.Json;
+//using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace lca_model.db {
 
     public class UnitGroup {
 
+        // TODO write unit tests for us json-reading files!
         public UnitGroupData data { get; }
         
         public UnitGroup(string filepath) {
             string json = File.ReadAllText(filepath).Replace("@","");
-            this.data = JsonSerializer.Deserialize<UnitGroupData>(json);
+            this.data = JsonConvert.DeserializeObject<UnitGroupData>(json);
+            //this.data = JsonSerializer.Deserialize<UnitGroupData>(json);
         }
         
         public class UnitGroupData {
