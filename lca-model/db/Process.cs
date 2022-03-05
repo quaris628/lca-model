@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lca_model.db
 {
-   public class Process : ReadableFromJson<Process.ProcessData>
+   public class Process// : ReadableFromJson<Process.ProcessData>
    {
 
       public class ProcessData
@@ -20,14 +20,14 @@ namespace lca_model.db
          public string processType { get; set; }
          public string defaultAllocationMethod { get; set; }
          public bool infrastructureProcess { get; set; }
-         public Location.LocationData location { get; set; }
+         public Location location { get; set; }
          //public ProcessDocumentation processDocumentation { get; set; }
          public int lastInternalId { get; set; }
          //public Exchange[] exchanges { get; set; }
 
       }
 
-      public Process(string filepath) : base(filepath) { }
+        public Process(string filepath) { }// : base(filepath) { }
       
 
    }

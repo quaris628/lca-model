@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace lca_model.db
 {
+    [Serializable]
     public class Category
     {
         public string id { get; set; }

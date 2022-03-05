@@ -16,7 +16,7 @@ namespace lca_model.db
       public Process.ProcessData defaultProvider { get; set; }
       public Flow.FlowData flow { get; set; }
       public Unit unit { get; set; }
-      public FlowProperty.FlowPropertyData flowProperty { get; set; }
+      public FlowProperty flowProperty { get; set; }
       public bool quantitativeReference { get; set; }
       
    }

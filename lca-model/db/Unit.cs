@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace lca_model.db
 {
+    [Serializable]
     public class Unit
     {
         public string id { get; set; }
@@ -14,7 +15,7 @@ namespace lca_model.db
         public string version { get; set; }
         public float conversionFactor { get; set; }
         // v sometimes null
-        public string[] synonymns { get; set; }
+        public string[] synonyms { get; set; }
 
     }
 }
