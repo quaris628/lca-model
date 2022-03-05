@@ -44,7 +44,7 @@
     <Compile Include="db\Exchange.cs" />
     <Compile Include="db\Flow.cs" />
     <Compile Include="db\FlowProperty.cs" />
-    <Compile Include="db\JsonReader.cs" />
+    <Compile Include="db\FlowPropertyFactor.cs" />
     <Compile Include="db\Location.cs" />
     <Compile Include="db\Point.cs" />
     <Compile Include="db\Process.cs" />

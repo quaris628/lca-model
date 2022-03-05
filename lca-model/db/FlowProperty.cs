@@ -11,6 +11,8 @@ namespace lca_model.db {
         
         public string name { get; set; }
         public string version { get; set; }
+        // v sometimes null
+        public string lastChange { get; set; }
         public Category category { get; set; }
         public string flowPropertyType { get; set; }
         public UnitGroup unitGroup { get; set; }
@@ -18,7 +20,7 @@ namespace lca_model.db {
         public FlowProperty() { }
 
         public override void InstantiateNestedJsonInstantiables() {
-            unitGroup = (UnitGroup)InstantiateNested<UnitGroup>(UnitGroup.FOLDER, unitGroup.id);
+            unitGroup = InstantiateNested<UnitGroup>(UnitGroup.FOLDER, unitGroup.id);
         }
 
     }

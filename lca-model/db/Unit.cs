@@ -15,6 +15,8 @@ namespace lca_model.db
         public string version { get; set; }
         public float conversionFactor { get; set; }
         // v sometimes null
+        public bool referenceUnit { get; set; }
+        // v sometimes null
         public string[] synonyms { get; set; }
 
     }

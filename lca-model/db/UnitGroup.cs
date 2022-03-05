@@ -16,9 +16,8 @@ namespace lca_model.db {
         public Unit[] units { get; set; }
         public FlowProperty defaultFlowProperty { get; set; }
 
-        public override void InstantiateNestedJsonInstantiables()
-        {
-            defaultFlowProperty = (FlowProperty)InstantiateNested<FlowProperty>(FlowProperty.FOLDER, defaultFlowProperty.id);
+        public override void InstantiateNestedJsonInstantiables() {
+            defaultFlowProperty = InstantiateNested<FlowProperty>(FlowProperty.FOLDER, defaultFlowProperty.id);
         }
     }
 

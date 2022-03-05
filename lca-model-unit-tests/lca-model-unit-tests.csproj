@@ -49,7 +49,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JsonTests.cs" />
+    <Compile Include="json\FileTests.cs" />
+    <Compile Include="json\FlowTests.cs" />
+    <Compile Include="json\FlowPropertyTests.cs" />
+    <Compile Include="json\UnitGroupTests.cs" />
+    <Compile Include="json\LocationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
